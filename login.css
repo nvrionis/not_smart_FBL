@@ -1,0 +1,75 @@
+/* 🔹 Centering the Login Card */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--bg-color);
+}
+
+/* 🔹 Login Card Design */
+.login-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* 🔹 Headings & Text */
+.login-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* 🔹 Input Fields */
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: var(--border-radius);
+    background: #1a1a1a;
+    color: var(--text-color);
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.login-card input:focus {
+    border: 2px solid var(--primary-color);
+}
+
+/* 🔹 Login Button */
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.login-card button:hover {
+    background: var(--secondary-color);
+}
+
+/* 🔹 Error Message */
+#errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}

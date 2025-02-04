@@ -1,0 +1,408 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --bg-color: #121212;
+  --text-color: #EAEAEA;
+  --card-bg: #1E1E1E;
+  --card-border: #333;
+  --card-shadow: rgba(255, 255, 255, 0.1);
+  --selected-bg: #1E90FF;
+  --price-bg: #b10202;
+  --button-bg: #1E90FF;
+  --button-text: white;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Header */
+.header {
+    background-color: var(--card-bg);
+    padding: 20px;
+    color: white;
+    font-size: 22px;
+    position: relative;
+    z-index: 1100; /* Ensures it stays above the sticky elements */
+  }
+  
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0; /* Let JavaScript handle it dynamically */
+  }
+  
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 8px 15px;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0; /* Prevents unnecessary spacing */
+}
+
+
+/* Grid Wrapper */
+.grid-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Increased card size */
+  gap: 20px;
+  padding: 20px;
+  max-width: 800px;
+}
+
+/* Pair Card */
+.pair {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  width: 180px; /* Slightly larger cards */
+  height: 130px; /* Increased height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px var(--card-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+/* Hover Effect */
+.pair:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 4px 14px rgba(255, 255, 255, 0.2);
+}
+
+/* Selected Pair */
+.pair.selected {
+  background-color: var(--selected-bg);
+  color: #fff;
+}
+
+/* Disabled Pair */
+.pair.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Suit Icon (Top-Left) */
+.suit-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 20px;
+}
+
+/* Player Names (Centered) */
+.pair-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5px 10px;
+}
+
+.pair-names strong {
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+/* Price Tag (Top-Right) */
+.price-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--price-bg);
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Ranking Tag (Bottom-Right) */
+.ranking-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Info Icon (Bottom-Left) */
+.info-icon {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 14px;
+  background: #ddd;
+  color: #333;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Adjusts spacing between buttons */
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+/* Buttons */
+.button-group button {
+    background: #1E90FF;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    min-width: 120px; /* Prevents buttons from becoming too small */
+    max-width: 150px; /* Keeps buttons compact */
+}
+
+/* Button Hover Effect */
+.button-group button:hover {
+    background: #187bcd;
+    transform: scale(1.05);
+}
+
+/* Disable Button Style */
+#submitButton:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+/* Ensure Buttons Stay Side by Side on Small Screens */
+@media (max-width: 600px) {
+    .button-group {
+        flex-wrap: wrap; /* Allows wrapping if absolutely needed */
+        justify-content: center;
+    }
+
+    .button-group button {
+        min-width: 110px;
+        max-width: 140px;
+    }
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr)); /* 2 columns on smaller screens */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .pair {
+    width: 160px;
+    height: 120px;
+  }
+
+  .pair-names strong {
+    font-size: 14px;
+  }
+
+  .price-tag {
+    font-size: 13px;
+  }
+
+  .ranking-tag {
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: repeat(1, minmax(160px, 1fr)); /* 1 column on very small screens */
+    gap: 12px;
+  }
+}
+
+/* Prevent Background Scroll When Modal is Open */
+.modal-open {
+    overflow: hidden;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* Modal Box */
+.modal {
+    background-color: #1E1E1E;
+    color: #EAEAEA;
+    border-radius: 8px;
+    width: 90%; /* Ensure proper width on all devices */
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    text-align: left;
+    position: relative;
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive Fixes for Small Screens */
+@media (max-width: 600px) {
+    .modal {
+        width: 95%; /* Take more screen space on mobile */
+        max-width: 350px;
+        padding: 16px;
+    }
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #121212;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 500px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+/* Budget UI */
+#budget {
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Picks UI */
+#picks {
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.sticky-header {
+    position: relative; /* Start as normal (not fixed) */
+    width: 100%;
+    background: #121212;
+    backdrop-filter: blur(5px);
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+/* When sticky-header becomes fixed */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+@media (max-width: 600px) {
+    .sticky-header {
+        padding: 8px 0;
+    }
+
+    .status-bar {
+        font-size: 16px;
+        width: 95%;
+    }
+
+    .button-group {
+        gap: 6px;
+    }
+
+    .button-group button {
+        min-width: 100px;
+        max-width: 130px;
+        font-size: 14px;
+    }
+}

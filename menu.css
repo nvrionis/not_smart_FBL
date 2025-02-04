@@ -1,0 +1,23 @@
+#menu-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+#menu {
+    display: none;
+    background: white;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border: 1px solid #ccc;
+}
+#menu.open {
+    display: block;
+}
+#menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}

@@ -1,343 +1,116 @@
-/* styles.css */
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fira+Sans:wght@400;600&family=Fira+Code&display=swap');
-
+/* ✅ Theme Variables */
 :root {
-  /* Modern Light Theme Colors */
-  --bg-color: #F5F7FA;         /* Off-white background */
-  --text-color: #333333;       /* Dark grey text */
-  --card-bg: #ffffff;          /* White cards */
-  --card-border: #e0e0e0;       /* Soft grey border */
-  --card-shadow: rgba(0, 0, 0, 0.1);  /* Subtle shadow */
-  --selected-bg: #52be56;      /* Modern green for selection */
-  --selected-border: #0a400c;  /* Slightly darker green border */
-  --price-bg: #2979FF;         /* Vibrant blue for price tag */
-  --price-text: #ffffff;       /* White text on price tag */
-  --button-bg: #2979FF;        /* Primary button color */
-  --button-text: #ffffff;      /* White button text */
-  --reset-bg: black;           /* Reset/logout buttons in light mode */
-  --reset-text: white;
+    --primary-color: #1E90FF;  /* Blue */
+    --secondary-color: #FF4500; /* Orange */
+    --bg-color: #121212; /* Dark theme */
+    --text-color: #EAEAEA;
+    --card-bg: #1E1E1E;
+    --border-radius: 10px;
 }
 
-/* Global Styles */
+
+/* ✅ Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ✅ Body */
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 20px;
-  text-align: center;
-  margin: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Header */
-.header {
-  margin-bottom: 20px;
-}
-
-/* Status Bar */
-.status-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px;
-  flex-wrap: wrap;
-  font-family: 'Fira Code', monospace;
-}
-
-@media (max-width: 600px) {
-  .status-bar {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: var(--spacing);
+    display: flex;
     flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
+    align-items: center;
 }
 
-.status-bar span {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-/* Budget & Picks */
-#budget {
-  color: var(--button-bg);
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  text-shadow: 1px 1px 2px rgba(41, 121, 255, 0.3);
-}
-
-#picks {
-  color: var(--selected-bg);
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  text-shadow: 1px 1px 2px rgba(76, 175, 80, 0.3);
-}
-
-/* Container */
-.container {
-  max-width: 90%;
-  margin: auto;
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px var(--card-shadow);
-}
-
-/* Grid Layout for Cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin: 20px 0;
-}
-
-/* Pair Card Styles */
-.pair {
-  position: relative;
-  padding: 12px;      /* reduced from 16px */
-  border: 1px solid var(--card-border);
-  background-color: var(--card-bg);
-  border-radius: 8px;
-  box-shadow: 0 3px 6px var(--card-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  min-height: 70px;   /* reduced from 80px */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.pair:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 4px var(--card-shadow);
-}
-
-.pair-info {
-  width: 100%;
-  text-align: center;
-}
-
-.pair-names {
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-/* Price Tag as a corner label */
-.price-tag {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: var(--price-bg);
-  color: var(--price-text);
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-/* Selected & Disabled States */
-.selected {
-  background-color: var(--selected-bg);
-  color: white;
-  border: 1px solid var(--selected-border);
-}
-
-.disabled {
-  background-color: #f0f0f0 !important;
-  color: #a0a0a0 !important;
-  cursor: not-allowed;
-  border-color: var(--card-border);
-  opacity: 0.5;
-}
-
-/* Buttons */
+/* ✅ Buttons */
 button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  padding: 10px 14px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: auto;
-  height: 40px;
-  font-family: 'Montserrat', sans-serif;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.2s ease;
-  margin: 4px;
-}
-
-#submitButton {
-    background-color: var(--selected-bg);
-    padding: 8px 12px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.2s ease, background-color 0.2s ease;
-  }
-  
-  #submitButton:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;      
-    opacity: 0.6;
-  }
-  
-  
-
-#resetButton,
-#logoutButton {
-  background-color: var(--reset-bg);
-  color: var(--reset-text);
-  padding: 8px 12px;
-  border-radius: 4px;
-  margin-bottom: 8px;
+    transition: var(--transition);
 }
 
-/* Dark Mode Toggle Icon */
-#darkModeToggle {
-  background: none;
-  border: none;
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--text-color);
+button:hover {
+    background: var(--secondary-color);
 }
 
-#darkModeToggle::before {
-  content: '\1F319'; /* Moon symbol */
-}
-
-/* Warning Message */
-.warning {
-  font-weight: bold;
-  color: red;
-}
-
-/* Info Icon in Pair Card */
-.info-icon {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background-color: #ddd;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .info-icon:hover {
-    background-color: #ccc;
-  }
-  
- /* Modal Overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 10px;
-  }
-  
-  /* Modal Container */
-  .modal {
-    background-color: #fff;
-    border-radius: 8px;
+/* ✅ Card Style */
+.card {
+    background: var(--card-bg);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    position: relative;
-    padding: 20px;
-    text-align: left;
-  }
-  
-  /* Modal Close Button */
-  .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    text-align: center;
+}
+
+/* ✅ Input Fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background: #1a1a1a;
+    color: var(--text-color);
+}
+
+/* ✅ Menu (Burger Navigation) */
+#menu-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+#menu-btn {
     background: none;
     border: none;
-    font-size: 24px;
-    line-height: 1;
+    font-size: 30px;
     cursor: pointer;
-    color: #333;
-  }
-  
-  /* Modal Content */
-  .modal-content p {
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  /* Responsive adjustments for mobile */
-  @media (max-width: 480px) {
-    .modal {
-      max-width: 90%;
-      padding: 15px;
-    }
-    .modal-content p {
-      font-size: 14px;
-    }
-  }
-  
-/* Suit Icon in Pair Card (Top Left) */
-.suit-icon {
+    color: var(--primary-color);
+}
+
+#menu {
+    display: none;
+    background: var(--card-bg);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
     position: absolute;
-    top: 8px;
-    left: 8px;
-    background-color: transparent;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: black;
-    cursor: default;
-    z-index: 2; /* Ensure it sits above other elements */
-  }
-  
-/* Ranking Tag in Pair Card (Bottom Right) */
-.ranking-tag {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    z-index: 2;
-    /* A default background (will be overridden inline when rank is known) */
-    background-color: #f0f0f0;
-  }
-  
+    top: 50px;
+    left: 0;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#menu.open {
+    display: block;
+}
+
+#menu a, #logoutBtn {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px;
+    transition: var(--transition);
+}
+
+#menu a:hover, #logoutBtn:hover {
+    color: var(--secondary-color);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+}
