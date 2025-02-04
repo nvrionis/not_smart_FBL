@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="leaderboard.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>Leaderboard</h1>
+  </header>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="filter-group">
+      <label for="filterDay">Filter by Day:</label>
+      <select id="filterDay">
+        <option value="general">General</option>
+        <option value="day1">Day 1</option>
+        <option value="day2">Day 2</option>
+        <option value="day3">Day 3</option>
+      </select>
+    </div>
+
+    <div class="sort-group" id="sortContainer">
+      <label for="sortRank">Sort by:</label>
+      <select id="sortRank">
+        <option value="general">General Score</option>
+        <option value="day1">Day 1 Score</option>
+        <option value="day2">Day 2 Score</option>
+        <option value="day3">Day 3 Score</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Leaderboard Table -->
+  <div class="table-wrapper">
+    <table id="leaderboard">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th class="squad-column">Squad</th>
+          <th class="day-column" data-day="day1">Day 1</th>
+          <th class="day-column" data-day="day2">Day 2</th>
+          <th class="day-column" data-day="day3">Day 3</th>
+          <th class="day-column" data-day="general">General</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardBody">
+        <!-- Rows will be dynamically generated -->
+      </tbody>
+    </table>
+  </div>
+  <!-- Squad Modal -->
+<div id="squadModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Squad for <span id="modalDay"></span> - <span id="modalPlayer"></span></h2>
+      <ul id="squadList"></ul>
+    </div>
+  </div>
+  
+  <script src="leaderboard.js"></script>
+</body>
+</html>
