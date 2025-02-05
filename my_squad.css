@@ -20,6 +20,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   text-align: center;
+  padding-top: 120px;
 }
 
 /* Header */
@@ -29,8 +30,8 @@ body {
     color: white;
     font-size: 22px;
     position: relative;
-    z-index: 1100; /* Ensures it stays above the sticky elements */
-  }
+    z-index: 1100;
+}
   
 
 /* Main Container */
@@ -363,19 +364,33 @@ body {
     transition: color 0.3s ease;
 }
 
+/* Sticky Header - Fixed at the Top */
 .sticky-header {
-    position: relative; /* Start as normal (not fixed) */
+    position: fixed;
+    top: 50px; /* Below the menu */
+    left: 0;
     width: 100%;
     background: #121212;
     backdrop-filter: blur(5px);
-    padding: 10px 0;
+    padding: 10px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
 }
+
+/* Scrollable Container */
+.scrollable-container {
+    position: absolute;
+    top: 140px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    padding: 20px;
+}
+
 
 /* When sticky-header becomes fixed */
 .sticky {

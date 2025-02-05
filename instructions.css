@@ -1,0 +1,124 @@
+/* Import Modern Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --bg-color: #0D1117;
+  --text-color: #F0F0F0;
+  --highlight-color: #1F6FEB;
+  --green: #3FB950;
+  --section-bg: rgba(255, 255, 255, 0.08);
+  --border-radius: 12px;
+  --button-bg: #FFD700;
+  --button-hover: #FFC107;
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 80px 20px 20px;
+  }
+  
+  /* Adjust container margin to align better */
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--section-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+    margin-top: 20px; /* Added margin */
+  }
+  
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 20px;
+  color: var(--highlight-color);
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  margin-bottom: 8px;
+}
+
+.bold {
+  font-weight: 600;
+  color: var(--highlight-color);
+}
+
+.green {
+  color: var(--green);
+  font-weight: bold;
+}
+
+.highlight {
+  color: var(--highlight-color);
+}
+
+.section {
+  background: rgba(32, 38, 46, 0.9);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--button-bg);
+  color: black;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
+}

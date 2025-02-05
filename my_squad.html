@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Squad Selection</title>
   <link rel="stylesheet" href="my_squad.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="menu.css" />
 </head>
 <body>
-    <header class="header">
-      <h1>Select Your Squad</h1>
-    </header>
-  
-    <!-- Sticky Header Section -->
+
+    <!-- Sticky Header (Should NOT scroll) -->
     <div class="sticky-header">
-      <div class="button-group">
-        <button id="resetButton">Reset</button>
-        <button id="submitButton" disabled>Submit</button>
-      </div>
-  
-      <div class="status-bar">
-        <span>Budget: <span id="budget">48</span> credits</span>
-        <span>Picks: <span id="picks">0</span>/5</span>
-      </div>
+        <h2>Διάλεξε την ομάδα σου!</h2>
+        <div class="button-group">
+            <button id="resetButton">Reset</button>
+            <button id="submitButton" disabled>Submit</button>
+        </div>
+        <div class="status-bar">
+            <span>Budget: <span id="budget">48</span> credits</span>
+            <span>Picks: <span id="picks">0</span>/5</span>
+        </div>
     </div>
-  
-    <!-- Main Container -->
-    <div class="container">
-      <div class="grid-wrapper">
-        <div id="playerGrid" class="grid"></div>
-      </div>
+
+    <!-- Scrollable Content -->
+    <div class="scrollable-container">
+        <div class="grid-wrapper">
+            <div id="playerGrid" class="grid"></div>
+        </div>
     </div>
-  
+
     <!-- Modal -->
     <div id="infoModal" class="modal-overlay" style="display: none;">
-      <div class="modal">
-        <button class="modal-close" id="modalClose">&times;</button>
-        <div class="modal-content" id="modalContent"></div>
-      </div>
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content" id="modalContent"></div>
+        </div>
     </div>
-  
+
+    <script src="menu.js"></script>
     <script type="module" src="my_squad.js"></script>
-  </body>  
+</body>  
 </html>

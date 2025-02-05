@@ -367,29 +367,16 @@ resetBtn.addEventListener("click", resetSelection);
 loadPairs();
 
 function adjustStickyBehavior() {
-    const header = document.querySelector(".header");
     const stickyHeader = document.querySelector(".sticky-header");
-    const container = document.querySelector(".container");
+    const scrollableContainer = document.querySelector(".scrollable-container");
 
-    if (header && stickyHeader && container) {
-        const headerHeight = header.offsetHeight;
-        const stickyStart = headerHeight + 20; // Where it should become sticky
-
-        function handleScroll() {
-            if (window.scrollY > stickyStart) {
-                stickyHeader.classList.add("sticky");
-                container.style.paddingTop = `${stickyHeader.offsetHeight + headerHeight}px`; // Avoid jump
-            } else {
-                stickyHeader.classList.remove("sticky");
-                container.style.paddingTop = `${headerHeight - 20}px`; // Normal position
-            }
-        }
-
-        // Run on scroll and on page load
-        window.addEventListener("scroll", handleScroll);
-        handleScroll();
+    if (stickyHeader && scrollableContainer) {
+        const headerHeight = stickyHeader.offsetHeight;
+        scrollableContainer.style.top = `${headerHeight + 10}px`; // Prevent overlap
     }
 }
 
+// Adjust when page loads & resizes
 window.addEventListener("DOMContentLoaded", adjustStickyBehavior);
 window.addEventListener("resize", adjustStickyBehavior);
+
