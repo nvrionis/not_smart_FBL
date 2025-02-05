@@ -56,13 +56,23 @@
     </table>
   </div>
   <!-- Squad Modal -->
-<div id="squadModal" class="modal">
+  <div id="squadModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Squad for <span id="modalDay"></span> - <span id="modalPlayer"></span></h2>
+        <ul id="squadList"></ul>
+      </div>
+    </div>
+
+  <!-- Full Name Modal -->
+  <div id="nameModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Squad for <span id="modalDay"></span> - <span id="modalPlayer"></span></h2>
-      <ul id="squadList"></ul>
+        <span class="close" id="closeNameModal">&times;</span>
+        <h2>Player Information</h2>
+        <p id="playerFullName"></p>
     </div>
   </div>
+
   
   <script src="leaderboard.js"></script>
   <script src="menu.js"></script>

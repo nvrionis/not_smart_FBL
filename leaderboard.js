@@ -94,7 +94,7 @@ function renderLeaderboard(selectedDay = "general", sortBy = "general") {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${index === 0 ? "🏆" : index === 1 ? "🥈" : index === 2 ? "🥉" : index + 1}</td>
-      <td>${player.name}</td>
+      <td class="clickable-username" data-name="${player.name}">${player.name}</td>
       ${!isGeneral ? `<td class="squad-column">${player.squad[selectedDay].join(", ")}</td>` : ""}
       ${isGeneral ? `
         <td class="clickable-score" data-name="${player.name}" data-day="day1">${player.scores.day1}</td>
@@ -116,7 +116,37 @@ function renderLeaderboard(selectedDay = "general", sortBy = "general") {
       showSquadModal(player, day);
     });
   });
+
+  // Attach event listeners for clicking usernames
+  document.querySelectorAll(".clickable-username").forEach(usernameCell => {
+    usernameCell.addEventListener("click", (event) => {
+        const playerName = event.target.getAttribute("data-name");
+        showNameModal(playerName);
+    });
+  });
+
 }
+
+const nameModal = document.getElementById("nameModal");
+const playerFullName = document.getElementById("playerFullName");
+const closeNameModal = document.getElementById("closeNameModal");
+
+function showNameModal(playerName) {
+    playerFullName.textContent = `Full Name: ${playerName}`; // Change this if full name is different
+    nameModal.style.display = "flex";
+}
+
+// Close modal on click
+closeNameModal.addEventListener("click", () => {
+    nameModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === nameModal) {
+        nameModal.style.display = "none";
+    }
+});
+
 
 // Event Listeners for Filters
 filterDay.addEventListener("change", () => {
